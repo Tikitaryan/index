@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Card</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #e0f7fa;
+        font-family: Calibri;
+      }
+      .card {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        max-width: 500px;
+      }
+      h2 {
+        color: #0073b1;
+      }
+      h4 {
+        color: #090909;
+      }
+      .profile-pic {
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto 10px;
+        border: 4px solid #7c9696;
+      }
+      .social-links a {
+        margin: 0 5px;
+        text-decoration: none;
+        color: #ffffff;
+        background-color: #0073b1;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      .social-links a:hover {
+        background-color: #005580;
+      }
+      .utc-time {
+        margin-top: 10px;
+        font-size: 0.9em;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img
+        src="https://media.licdn.com/dms/image/v2/C4E03AQENH7oXfZyKTA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1654601767956?e=1743638400&v=beta&t=ZPqWuuwXCiqWIT9p-cp3GIMPKe6ayNR-MyMvJVWGVfc"
+        width="100"
+        height="100"
+        alt="Profile Picture"
+        class="profile-pic"
+        data-testid="profilePicture"
+      />
+      <hr />
+      <h2 data-testid="fullName">Moshood Sulayman</h2>
+      <h4 data-testid="jobTitle">Front-End Developer</h4>
+      <p data-testid="shortBio">
+        Passionate developer with a love for building efficient and scalable
+        applications. Always eager to learn and contribute to meaningful
+        projects.
+      </p>
+      <p data-testid="currentLocation">Lagos, Nigeria</p>
+      <p data-testid="emailAddress">
+        <a href="mailto:moshoodsulayman@gmail.com">moshoodsulayman@gmail.com</a>
+      </p>
+      <div class="social-links" data-testid="socialLinks">
+        <a href="https://www.linkedin.com/in/moshoodsulayman" target="_blank"
+          >LinkedIn</a
+        >
+        <a href="https://github.com/Tikitaryan" target="_blank">GitHub</a>
+        <a href="https://twitter.com/tikitaryan" target="_blank">Twitter</a>
+      </div>
+      <p class="utc-time" data-testid="currentTimeUTC">
+        UTC Time: <span id="utc-time"></span>
+      </p>
+    </div>
+    <script>
+      function updateUTCTime() {
+        const now = new Date();
+        document.getElementById("utc-time").textContent =
+          now.toISOString().split(".")[0] + " UTC";
+      }
+      updateUTCTime();
+      setInterval(updateUTCTime, 1000);
+    </script>
+  </body>
+</html>
